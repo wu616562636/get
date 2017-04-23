@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <!--<script src="{{asset('js/jquery-3.1.0.min.js')}}"></script>-->
-    <!--{{&#45;&#45;<script src="jquery-3.1.0.min.js"></script>&#45;&#45;}}-->
     <script src="jquery-3.1.0.min.js"></script>
+    <!--{{&#45;&#45;<script src="jquery-3.1.0.min.js"></script>&#45;&#45;}}-->
     <script>
         /*rem 自适应*/
         (function (doc, win) {
@@ -23,12 +23,6 @@
             win.addEventListener(resizeEvt, recalc, false);
             doc.addEventListener('DOMContentLoaded', recalc, false);
         })(document, window);
-
-        $(function(){
-            $(".back_text").click(function(){
-                //location.href = '{{url('mom/index')}}' ;
-            })
-        })
     </script>
     <style>
         @font-face {
@@ -51,7 +45,6 @@
             font-size: .16rem;
             font-family: "Microsoft YaHei UI";
             -webkit-font-smoothing: antialiased;
-            background-repeat: no-repeat;
         }
         .success_bar {
             /*position: relative;*/
@@ -95,15 +88,15 @@
             text-align: center;
         }
         .back_index {
-                position: relative;
-                width: 86%;
-                margin-left: 7%;
-                /* margin-top: 1.3rem; */
-            top: .7rem;
-                height: .4rem;
-                background: rgba(255,255,255,.2);
-                border-radius: .1rem;
-                color: #fff;
+            position: relative;
+            width: 86%;
+            margin-left: 7%;
+            /* margin-top: 1.3rem; */
+            top: .65rem;
+            height: .4rem;
+            background: rgba(255,255,255,.2);
+            border-radius: .1rem;
+            color: #fff;
         }
         .back_icon {
             display: inline-block;
@@ -123,28 +116,33 @@
             margin-left: .5rem;
         }
         .tip {
-                position: relative;
-                top: .75rem;
-                /* margin-top: .2rem; */
-                width: 80%;
-                color: #fff;
-                margin-left: 10%;
+            position: relative;
+            top: .75rem;
+            /* margin-top: .2rem; */
+            width: 80%;
+            color: #fff;
+            margin-left: 10%;
         }
     </style>
 </head>
 <body>
-    <div class="success_bar">
-        <span class="icon">&#xe604;</span>
-        <p class="service_tip">支付成功啦</p>
-        <div class="Dim_code">
-            <img src="code.jpg" alt="code_img" class="code_img">
-            <p class="code_text">扫一扫进入优咕</p>
-        </div>
+<div class="success_bar">
+    <span class="icon">&#xe678;</span>
+    <p class="service_tip">支付失败_(:з」∠)_</p>
+    <div class="Dim_code">
+        <img src="code.jpg" alt="code_img" class="code_img">
+        <p class="code_text">扫一扫进入优咕</p>
     </div>
-    <div class="back_index">
-        <span class="back_icon">&#xe64c;</span>
-        <p class="back_text">返回首页</p>
-    </div>
-    <p class="tip">tip：如果想给母亲看你的美照，可以直接发公众号</p>
+</div>
+<div class="back_index">
+    <span class="back_icon">&#xe64c;</span>
+    <p class="back_text">返回首页</p>
+</div>
+<p class="tip">tip：如果想给母亲看你的美照，可以直接发公众号</p>
+<script type="text/javascript">
+    $(".back_text").click(function(){
+        //location.href = '{{url('mom/index')}}' ;
+    })
+</script>
 </body>
 </html>
