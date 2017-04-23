@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <!--<script src="{{asset('js/jquery-3.1.0.min.js')}}"></script>-->
+    <!--{{&#45;&#45;<script src="jquery-3.1.0.min.js"></script>&#45;&#45;}}-->
+    <script src="jquery-3.1.0.min.js"></script>
+    <script>
+        /*rem 自适应*/
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 320) + 'px';
+                    };
+
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+
+        $(function(){
+            $(".back_text").click(function(){
+                //location.href = '{{url('mom/index')}}' ;
+            })
+        })
+    </script>
+    <style>
+        @font-face {
+            font-family: 'iconfont';  /* project id 205279 */
+            src: url('//at.alicdn.com/t/font_f9htmv9bkwxez5mi.eot');
+            src: url('//at.alicdn.com/t/font_f9htmv9bkwxez5mi.eot?#iefix') format('embedded-opentype'),
+            url('//at.alicdn.com/t/font_f9htmv9bkwxez5mi.woff') format('woff'),
+            url('//at.alicdn.com/t/font_f9htmv9bkwxez5mi.ttf') format('truetype'),
+            url('//at.alicdn.com/t/font_f9htmv9bkwxez5mi.svg#iconfont') format('svg');
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body {
+            height: 100%;
+        }
+        body {
+            background: linear-gradient(rgb(120,112,222),rgb(113,198,209));
+            font-size: .16rem;
+            font-family: "Microsoft YaHei UI";
+            -webkit-font-smoothing: antialiased;
+            background-repeat: no-repeat;
+        }
+        .success_bar {
+            /*position: relative;*/
+            height: 3rem;
+            width: 86%;
+            margin-left: 7%;
+            top:.8rem;
+            /*margin-top: 1rem;*/
+            position: relative;
+            background: rgba(255,255,255,.2);
+        }
+        .icon {
+            display: inline-block;
+            position: absolute;
+            font-family: iconfont;
+            height: .7rem;
+            left: calc((100% - (0.7rem))/2);
+            top: -.3rem;
+            width: .7rem;
+            font-size: .5rem;
+            text-align: center;
+            line-height: .7rem;
+            background: #fff;
+            border-radius: .35rem;
+        }
+        .service_tip {
+            padding-top: .5rem;
+            font-size: .3rem;
+            text-align: center;
+        }
+        .Dim_code {
+            /*margin-left: .68rem;*/
+            margin-top: .2rem;
+        }
+        .code_img {
+            width: 1.4rem;
+            margin-left: .68rem;
+            /*margin-top: .2rem;*/
+        }
+        .code_text {
+            text-align: center;
+        }
+        .back_index {
+                position: relative;
+                width: 86%;
+                margin-left: 7%;
+                /* margin-top: 1.3rem; */
+                top: 1.3rem;
+                height: .4rem;
+                background: rgba(255,255,255,.2);
+                border-radius: .1rem;
+                color: #fff;
+        }
+        .back_icon {
+            display: inline-block;
+            font-family: iconfont;
+            vertical-align: top;
+            font-size: .25rem;
+            height: .4rem;
+            line-height: .4rem;
+            margin-left: .15rem;
+        }
+        .back_text {
+            display: inline-block;
+            vertical-align: top;
+            height: .4rem;
+            line-height: .4rem;
+            font-size: .2rem;
+            margin-left: .5rem;
+        }
+        .tip {
+                position: relative;
+                top: 1.5rem;
+                /* margin-top: .2rem; */
+                width: 80%;
+                color: #fff;
+                margin-left: 10%;
+        }
+    </style>
+</head>
+<body>
+    <div class="success_bar">
+        <span class="icon">&#xe604;</span>
+        <p class="service_tip">支付成功啦</p>
+        <div class="Dim_code">
+            <img src="code.jpg" alt="code_img" class="code_img">
+            <p class="code_text">扫一扫进入优咕</p>
+        </div>
+    </div>
+    <div class="back_index">
+        <span class="back_icon">&#xe64c;</span>
+        <p class="back_text">返回首页</p>
+    </div>
+    <p class="tip">tip：如果想给母亲看你的美照，可以直接发公众号</p>
+</body>
+</html>
