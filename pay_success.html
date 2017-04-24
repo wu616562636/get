@@ -1,13 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <!--<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>-->
+    <!--<meta http-equiv="content-type" content="text/html;charset=utf-8"/>-->
     <!--<script src="{{asset('js/jquery-3.1.0.min.js')}}"></script>-->
     <script src="jquery-3.1.0.min.js"></script>
-    <!--{{&#45;&#45;<script src="jquery-3.1.0.min.js"></script>&#45;&#45;}}-->
+
+    <title>正在付款...</title>
     <script>
         /*rem 自适应*/
         (function (doc, win) {
@@ -24,14 +26,66 @@
             doc.addEventListener('DOMContentLoaded', recalc, false);
         })(document, window);
     </script>
+    <script type="text/javascript">
+// cel(){-->
+                <!--$.ajax({-->
+                    <!--url:"{{url('order/cancal')}}",-->
+                    <!--type:"post",-->
+                    <!--data:{-->
+                        <!--order_id:order-->
+                    <!--},-->
+                    <!--dataType:"json",-->
+                    <!--success:function(data){-->
+                        <!--if(data.error==0){-->
+                            <!--window.location.href='{{url('mom/index')}}';-->
+                        <!--}else{-->
+                            <!--alert(data.msg);-->
+                        <!--}-->
+
+                    <!--},-->
+                    <!--error:function(){-->
+                        <!--console.log('error');-->
+                    <!--}-->
+                <!--})-->
+            <!--}-->
+
+            <!--$(".cancel,.cancel_bar").click(function(){-->
+                <!--cancel();-->
+            <!--});-->
+
+
+//            <!--//过滤文字-->
+            <!--function name_filter(name,choose) {-->
+                <!--var old_name = name;-->
+                <!--var choose_str = choose;-->
+                <!--var length = choose.length;-->
+                <!--if(old_name.indexOf(choose)!=-1){-->
+                    <!--return old_name.replace(choose,'');-->
+                <!--}else{-->
+                    <!--return old_name;-->
+                <!--}-->
+            <!--}-->
+
+            <!--$(".good_name").text(name_filter(name,choose));-->
+
+            <!--setInterval(function () {-->
+                <!--if(time<=0){-->
+                    <!--alert("支付超时");-->
+                    <!--cancel();-->
+                <!--}else{-->
+                    <!--time = time - 1;-->
+                    <!--second = time % 60;-->
+                    <!--minute = (time - second)/60;-->
+
+    </script>
     <style>
         @font-face {
             font-family: 'iconfont';  /* project id 205279 */
-            src: url('//at.alicdn.com/t/font_f9htmv9bkwxez5mi.eot');
-            src: url('//at.alicdn.com/t/font_f9htmv9bkwxez5mi.eot?#iefix') format('embedded-opentype'),
-            url('//at.alicdn.com/t/font_f9htmv9bkwxez5mi.woff') format('woff'),
-            url('//at.alicdn.com/t/font_f9htmv9bkwxez5mi.ttf') format('truetype'),
-            url('//at.alicdn.com/t/font_f9htmv9bkwxez5mi.svg#iconfont') format('svg');
+            src: url('//at.alicdn.com/t/font_d7ism71qowfry66r.eot');
+            src: url('//at.alicdn.com/t/font_d7ism71qowfry66r.eot?#iefix') format('embedded-opentype'),
+            url('//at.alicdn.com/t/font_d7ism71qowfry66r.woff') format('woff'),
+            url('//at.alicdn.com/t/font_d7ism71qowfry66r.ttf') format('truetype'),
+            url('//at.alicdn.com/t/font_d7ism71qowfry66r.svg#iconfont') format('svg');
         }
         *{
             margin: 0;
@@ -41,108 +95,178 @@
             height: 100%;
         }
         body {
-            background: linear-gradient(rgb(120,112,222),rgb(113,198,209));
+            position: relative;
             font-size: .16rem;
             font-family: "Microsoft YaHei UI";
             -webkit-font-smoothing: antialiased;
         }
-        .success_bar {
-            /*position: relative;*/
-            height: 3rem;
-            width: 86%;
-            margin-left: 7%;
-            top: .5rem;
-            /*margin-top: 1rem;*/
+        #header {
             position: relative;
-            background: rgba(255,255,255,.2);
+            height: .4rem;
+            /*background: red;*/
+            /*border-bottom: .01rem solid red;*/
+            /*border: .01rem solid red;*/
+            box-shadow: 0 0 .2rem 0 #777;
         }
-        .icon {
+        #header .good_name {
             display: inline-block;
+            vertical-align: top;
+            font-weight: normal;
+            font-size: .16rem;
+            height: .4rem;
+            width: 75%;
+            margin-left: .25rem;
+            line-height: .4rem;
+        }
+        #header .cancel {
             position: absolute;
-            font-family: iconfont;
-            height: .7rem;
-            left: calc((100% - (0.7rem))/2);
-            top: -.3rem;
-            width: .7rem;
-            font-size: .5rem;
-            text-align: center;
-            line-height: .7rem;
+            right: 0;
+            display: inline-block;
+            /* border: .01rem solid red; */
+            border: 0;
+            outline: 0;
+            height: .4rem;
+            width: 15%;
             background: #fff;
-            border-radius: .35rem;
         }
-        .service_tip {
-            padding-top: .5rem;
-            font-size: .3rem;
-            text-align: center;
-        }
-        .Dim_code {
-            /*margin-left: .68rem;*/
-            margin-top: .2rem;
-        }
-        .code_img {
-            width: 1.4rem;
-            margin-left: .68rem;
-            /*margin-top: .2rem;*/
-        }
-        .code_text {
-            text-align: center;
-        }
-        .back_index {
-            position: relative;
-            width: 86%;
-            margin-left: 7%;
-            /* margin-top: 1.3rem; */
-            top: .65rem;
-            height: .4rem;
-            background: rgba(255,255,255,.2);
-            border-radius: .1rem;
-            color: #fff;
-        }
-        .back_icon {
+        .cancel .cancel_icon {
             display: inline-block;
             font-family: iconfont;
-            vertical-align: top;
-            font-size: .25rem;
-            height: .4rem;
-            line-height: .4rem;
-            margin-left: .15rem;
+            font-size: .2rem;
+            margin-left: .1rem;
+            color: #aaa;
         }
-        .back_text {
+        #content .good_pic {
+            width: 100%;
+            height: 2.2rem;
+        }
+        #content .countDown {
+            margin-top: -.04rem;
+            background: #444;
+            height: .35rem;
+            color: #fff;
+        }
+        .countDown .count_topic {
+            display: inline-block;
+            height: .35rem;
+            line-height: .35rem;
+            width: .8rem;
+            margin-right: .6rem;
+            text-align: center;
+            color: #aaa;
+        }
+        .pay_total {
+            /*height: 1.8rem;*/
+                height: .7rem;
+        }
+        .pay_total .total_text {
+           display: inline-block;
+    vertical-align: top;
+    /* height: 1.8rem; */
+    height: .7rem;
+    font-size: .18rem;
+    margin-right: .5rem;
+    color: #aaa;
+    margin-left: .2rem;
+    /* line-height: 1.8rem; */
+    line-height: .7rem;
+        }
+        .pay_total .total_num {
+               display: inline-block;
+    vertical-align: top;
+    /* height: 1.8rem; */
+    height: .7rem;
+    /* line-height: 1.8rem; */
+    line-height: .7rem;
+    font-size: .35rem;
+        }
+        .pay {
             display: inline-block;
             vertical-align: top;
-            height: .4rem;
-            line-height: .4rem;
-            font-size: .2rem;
-            margin-left: .5rem;
-        }
-        .tip {
-            position: relative;
-            top: .75rem;
-            /* margin-top: .2rem; */
-            width: 80%;
+            background: rgb(29,215,169);
+            border: 0;
+            height: .9rem;
+            /*margin-left: calc((100% - (0.9rem))/2);*/
+            width: .9rem;
+            font-size: .4rem;
+            outline: 0;
             color: #fff;
-            margin-left: 10%;
         }
+        .pay_icon {
+            display: inline-block;
+            font-family: iconfont;
+        }
+        #footer {
+            /*position: absolute;*/
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: .9rem;
+        }
+        .cancel_bar {
+            display: inline-block;
+            vertical-align: top;
+            background: #fff;
+            border: 0;
+            outline: 0;
+            height: .9rem;
+            width: 1.1rem;
+        }
+        .bar_icon {
+            display: inline-block;
+            font-family: iconfont;
+            color: rgb(96,169,222);
+            font-size: .2rem;
+        }
+        .pay_separate {
+                /* padding-left: 20%; */
+    /* padding-right: 20%; */
+    height: .3rem;
+    padding-left: 10%;
+    border-top: .01rem solid #000;
+    border-bottom: .01rem solid #000;
+        }
+        .unit_price, .pay_carriage {
+            display: inline-block;
+            vertical-align: top;
+            width:40%;
+            text-align: center;
+            height:.3rem;
+            line-height: .3rem;
+            font-size: .16rem;
+            color: #aaa;
+        }
+
+
     </style>
 </head>
 <body>
-<div class="success_bar">
-    <span class="icon">&#xe678;</span>
-    <p class="service_tip">支付失败_(:з」∠)_</p>
-    <div class="Dim_code">
-        <img src="code.jpg" alt="code_img" class="code_img">
-        <p class="code_text">扫一扫进入优咕</p>
+<header id="header">
+    <h1 class="good_name">12</h1>
+    <button class="cancel"><span class="cancel_icon">&#xe68a;</span></button>
+</header>
+<div id="content">
+    <img src="code.jpg" alt="good_pic" class="good_pic">
+    <p class="countDown"><span class="count_topic">倒计时</span><span class="minute"></span>：<span class="second"></span></p>
+    <div class="pay_total">
+        <span class="total_text">总价</span>
+        <span class="total_num">12元</span>
+    </div>
+    <div class="pay_separate">
+        <p class="unit_price">
+            <span class="unit_name">单价</span>
+            <span class="unit_num">12元</span>
+        </p>
+        <p class="pay_carriage">
+            <span class="carriage_name">运费</span>
+            <span class="carriage_num">1元</span>
+        </p>
     </div>
 </div>
-<div class="back_index">
-    <span class="back_icon">&#xe64c;</span>
-    <p class="back_text">返回首页</p>
-</div>
-<p class="tip">tip：如果想给母亲看你的美照，可以直接发公众号</p>
-<script type="text/javascript">
-    $(".back_text").click(function(){
-        //location.href = '{{url('mom/index')}}' ;
-    })
-</script>
+<footer id="footer">
+    <button class="cancel_bar" id="cancle"><span class="bar_icon">×</span></button>
+    <!--{{&#45;&#45;<button class="cancel" id="cancle"><span class="bar_icon">&#xe62a;</span></button>&#45;&#45;}}-->
+    <button class="pay" ><span class="pay_icon">√</span></button>
+</footer>
 </body>
 </html>
